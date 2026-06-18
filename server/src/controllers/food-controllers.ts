@@ -1,0 +1,40 @@
+import { Context } from "hono";
+import { connectDb } from "../util/connectDb.js";
+import { FoodModel } from "../model/food.model.js";
+
+export const createFood = async (c: Context) => {
+  await connectDb();
+
+  const input = await c.req.json();
+  console.log("INPUT", input);
+  const response = await FoodModel.create({
+    foodname: input.foodname,
+    price: input.price,
+    ingredients: input.ingredients,
+    image: input.image,
+    category: input.category,
+  });
+
+  return c.json({
+    message: "Amjilttai hool nemlee",
+    foot: response,
+  });
+};
+export const getfood = async (c: Context) => {
+  await connectDb();
+  const foods = await FoodModel.find();
+
+  return c.json({
+    message: "amjilttai",
+    foods,
+  });
+};
+export const deletfood = async (c) => {
+  await connectDb();
+  const id = c.req.param("id");
+  const fooddelete = await FoodModel.findOneAndDelete(id);
+  return c.json({
+    message: "amjilttai ustdlaa",
+    fooddelete,
+  });
+};
