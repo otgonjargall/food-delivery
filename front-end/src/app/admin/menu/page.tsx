@@ -42,6 +42,7 @@ const Page = () => {
         })}
         <AddCategoryDialog getCategories={getCategories} />
       </div>
+      <div className="flex w-full h-screen bg-red-500">hello</div>
     </div>
   );
 };

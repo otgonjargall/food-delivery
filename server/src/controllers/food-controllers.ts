@@ -29,10 +29,10 @@ export const getfood = async (c: Context) => {
     foods,
   });
 };
-export const deletfood = async (c) => {
+export const deletfood = async (c: Context) => {
   await connectDb();
   const id = c.req.param("id");
-  const fooddelete = await FoodModel.findOneAndDelete(id);
+  const fooddelete = await FoodModel.findByIdAndDelete(id);
   return c.json({
     message: "amjilttai ustdlaa",
     fooddelete,
