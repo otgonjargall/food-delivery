@@ -20,13 +20,14 @@ export const createFood = async (c: Context) => {
     foot: response,
   });
 };
-export const getfood = async (c: Context) => {
+export const getfoods = async (c: Context) => {
   await connectDb();
-  const foods = await FoodModel.find();
+
+  const response = await FoodModel.find();
 
   return c.json({
     message: "amjilttai",
-    foods,
+    foods: response,
   });
 };
 export const deletfood = async (c: Context) => {
