@@ -1,12 +1,41 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-export const CreateFoodDialog = () => {
+import axios from "axios";
+import { useState } from "react";
+export const CreateFoodDialog = ({ categoryid }: { categoryid: string }) => {
+  const [foodName, setFoodName] = useState("");
+  const [price, setPrice] = useState("");
+  const [ingredients, setIngredients] = useState("");
+
+  const handleFoodName = (e: any) => {
+    const { value } = e.target;
+
+    setFoodName(value);
+  };
+  const handlePrice = (e: any) => {
+    const { value } = e.target;
+
+    setPrice(value);
+  };
+  const handleIngredients = (e: any) => {
+    const { value } = e.target;
+
+    setIngredients(value);
+  };
+  const createFood = async () => {
+    const response = await axios.post("http://localhost:3001/food", {
+      foodName: foodName,
+      price: price,
+      ingredients: ingredients,
+      category: categoryid,
+    });
+  };
+
   return (
     <Dialog>
       <DialogTrigger>Open</DialogTrigger>
@@ -16,18 +45,18 @@ export const CreateFoodDialog = () => {
         </DialogHeader>
         <div>
           <p>foodname</p>
-          <input type="text" />
+          <input onChange={handleFoodName} type="text" />
         </div>
         <div>
           <p>price</p>
-          <input type="text" />
+          <input onChange={handlePrice} type="number" />
         </div>
         <div>
           <p>ingredients</p>
-          <input type="text" />
+          <input onChange={handleIngredients} type="text" />
         </div>
+        <button>add food</button>
       </DialogContent>
-      <button>add food</button>
     </Dialog>
   );
 };
