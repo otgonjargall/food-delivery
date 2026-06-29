@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import AddCategoryDialog from "@/components/admin/AddCategoryDialog";
 import { FoodsSection } from "@/components/admin/FoodsSection";
-import { CreateFoodDialog } from "@/components/admin/CreateFoodDialog";
 type FoodType = {
   foodname: string;
   price: number;
@@ -64,6 +63,7 @@ const Page = () => {
           {categories?.map((category) => {
             return (
               <FoodsSection
+                getFoods={getFoods}
                 foods={foods}
                 categoryId={category._id}
                 categoryName={category.categoryName}
