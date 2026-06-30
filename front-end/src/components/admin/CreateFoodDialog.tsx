@@ -40,8 +40,7 @@ export const CreateFoodDialog = ({
   };
 
   const handleFile = (e: any) => {
-    const uploadedFile = e.target.files;
-    [0];
+    const uploadedFile = e.target.files?.[0];
 
     setFile(uploadedFile);
   };
@@ -55,12 +54,12 @@ export const CreateFoodDialog = ({
     const imageUrl = await uploadFile(file);
     const response = await axios.post("http://localhost:3001/food", {
       foodName: foodName,
-      price: price,
+      price: Number(price),
       ingredients: ingredients,
       category: categoryid,
       image: imageUrl,
     });
-    getFoods;
+    getFoods();
   };
 
   return (

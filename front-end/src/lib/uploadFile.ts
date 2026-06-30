@@ -2,10 +2,10 @@ import { put } from "@vercel/blob";
 
 export const uploadFile = async (file: File) => {
   const blobToken = process.env.NEXT_PUBLIC_BLOB_READ_WRITE_TOKEN;
-  //   console.log("TOKEN", blobToken);
+
   const uniqueNumber = Date.now();
 
-  const blob = await put(`(file.name)-${uniqueNumber}`, file, {
+  const blob = await put(`${file.name}-${uniqueNumber}`, file, {
     access: "public",
     token: blobToken,
   });

@@ -62,12 +62,14 @@ const Page = () => {
         <div>
           {categories?.map((category) => {
             return (
-              <FoodsSection
-                getFoods={getFoods}
-                foods={foods}
-                categoryId={category._id}
-                categoryName={category.categoryName}
-              />
+              <div>
+                <FoodsSection
+                  getFoods={getFoods}
+                  foods={foods}
+                  categoryId={category._id}
+                  categoryName={category.categoryName}
+                />
+              </div>
             );
           })}
         </div>

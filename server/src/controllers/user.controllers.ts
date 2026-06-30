@@ -35,10 +35,10 @@ export const signUp = async (c: Context) => {
       400,
     );
   }
-  const hashedPassord = bcrypt.hashSync(password, 10);
+  // const hashedPassord = bcrypt.hashSync(password, 10);
   const newUser = await UserModel.create({
     email,
-    password: hashedPassord,
+    password,
   });
   return c.json({
     message: "Amjilttai hereglech burtgelee",
