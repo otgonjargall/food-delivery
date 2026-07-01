@@ -1,19 +1,19 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Router } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import {
   Field,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().email("ta zuv email oruulnu"),
@@ -30,6 +30,7 @@ export default function Page() {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    const router = useRouter();
     console.log("durmee dagasan bna", data);
     try {
       const response = await axios.post("http://localhost3001/user/signin", {
