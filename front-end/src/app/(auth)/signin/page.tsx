@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ChevronLeft, Router } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -30,7 +30,7 @@ export default function Page() {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    const router = useRouter();
+    // const router = useRouter();
     console.log("durmee dagasan bna", data);
     try {
       const response = await axios.post("http://localhost3001/user/signin", {
@@ -39,7 +39,7 @@ export default function Page() {
       });
       console.log("RESPONSE", response);
       if (response.status === 200) {
-        router.push("/admin/menu");
+        // router.push("/admin/menu");
       }
     } catch (error) {}
   };
@@ -65,7 +65,7 @@ export default function Page() {
                     {...field}
                     id="form-rhf-demo-title"
                     aria-invalid={fieldState.invalid}
-                    placeholder="Login button not working on mobile"
+                    placeholder="email"
                     autoComplete="off"
                   />
                   {fieldState.invalid && (

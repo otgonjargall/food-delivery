@@ -50,10 +50,10 @@ const Page = () => {
             return (
               <div
                 key={category._id}
-                className="rounded-full  py-2 px-4 border"
+                className="rounded-full  py-2 px-4 border "
               >
                 {category.categoryName}
-                <Badge className="gap-4">5</Badge>
+                <Badge className="gap-4"></Badge>
               </div>
             );
           })}

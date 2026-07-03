@@ -1,7 +1,6 @@
 import { Context } from "hono";
 import { connectDb } from "../util/connectDb.js";
 import { UserModel } from "../model/user.model.js";
-import bcrypt from "bcryptjs";
 
 export const signUp = async (c: Context) => {
   await connectDb();
@@ -35,11 +34,12 @@ export const signUp = async (c: Context) => {
       400,
     );
   }
-  // const hashedPassord = bcrypt.hashSync(password, 10);
+
   const newUser = await UserModel.create({
     email,
     password,
   });
+
   return c.json({
     message: "Amjilttai hereglech burtgelee",
     user: newUser,

@@ -13,12 +13,16 @@ export const FoodsSection = ({
 }) => {
   const filterfoods = foods.filter((food: any) => food.category === categoryId);
   return (
-    <div className=" bg-white rounded-xl w-[239px] mt-4 p-4">
-      <h3 className="text-2xl font-semibold">{categoryName}</h3>
+    <div className=" bg-white rounded-xl w-[1171px] mt-4 p-4 border">
+      <h3 className="text-2xl font-semibold ">{categoryName}</h3>
       <CreateFoodDialog categoryid={categoryId} getFoods={getFoods} />
-      {filterfoods.map((food) => (
-        <div className="p-3 rounded-xl border w-fit ">
-          <img className="w-[260px] rounded-xl" src={food.image} alt="" />
+      {filterfoods.map((food: any) => (
+        <div className="p-3 rounded-xl border w-fit  flex flex-col">
+          <img
+            className="w-[238px] h-[138px] rounded-xl"
+            src={food.image}
+            alt=""
+          />
           <div className="flex justify-between">
             <p>{food.foodname}</p>
             <p>{food.price}</p>

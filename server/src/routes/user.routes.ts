@@ -4,5 +4,5 @@ import { signUp } from "../controllers/user.controllers.js";
 const userRoutes = new Hono();
 
 userRoutes.post("/signup", signUp);
-
+userRoutes.get("/signup", signUp);
 export default userRoutes;

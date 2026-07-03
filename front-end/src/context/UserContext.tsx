@@ -1,39 +1,39 @@
-"use client";
+// "use client";
 
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import { createContext, ReactNode, useState } from "react";
+// import axios from "axios";
+// import { useRouter } from "next/navigation";
+// import { createContext, ReactNode, useState } from "react";
 
-type UserType = {
-  email: string;
-  password: string;
-  _id: string;
-};
-type UserContextType = {
-  user: UserType | undefined;
-  signIn: (_email: string, _password: string) => void;
-};
-const UserContext = createContext<UserContextType | undefined>(undefined);
+// type UserType = {
+//   email: string;
+//   password: string;
+//   _id: string;
+// };
+// type UserContextType = {
+//   user: UserType | undefined;
+//   signIn: (_email: string, _password: string) => void;
+// };
+// const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<UserType>();
-  const router = useRouter();
+// export const UserProvider = ({ children }: { children: ReactNode }) => {
+//   const [user, setUser] = useState<UserType>();
+//   const router = useRouter();
 
-  const signIn = async (email: string, password: string) => {
-    try {
-      const response = await axios.post("http://localhost3001/user/signin", {
-        email: email,
-        password: password,
-      });
-      console.log("RESPONSE", response);
-      if (response.status === 200) {
-        router.push("/admin/menu");
-      }
-    } catch (error) {}
-  };
-  return (
-    <UserContext.Provider value={{ user, signIn }}>
-      {children}
-    </UserContext.Provider>
-  );
-};
+//   const signIn = async (email: string, password: string) => {
+//     try {
+//       const response = await axios.post("http://localhost3001/user/signin", {
+//         email: email,
+//         password: password,
+//       });
+//       console.log("RESPONSE", response);
+//       if (response.status === 200) {
+//         router.push("/admin/menu");
+//       }
+//     } catch (error) {}
+//   };
+//   return (
+//     <UserContext.Provider value={{ user, signIn }}>
+//       {children}
+//     </UserContext.Provider>
+//   );
+// };
