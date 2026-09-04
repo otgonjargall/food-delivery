@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import { signUp } from "../controllers/user.controllers.js";
+import { signIn, signUp, } from "../controllers/user.controllers.js";
 
 const userRoutes = new Hono();
 
 userRoutes.post("/signup", signUp);
-userRoutes.get("/signup", signUp);
+userRoutes.post("/signin", signIn);
 export default userRoutes;

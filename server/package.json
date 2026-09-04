@@ -4,12 +4,12 @@
   "dependencies": {
     "@vercel/blob": "^2.4.1",
     "bcryptjs": "^3.0.3",
-    "hono": "^4.12.25",
-    "mongodb": "^7.3.0",
-    "mongoose": "^9.7.0"
+    "hono": "^4.13.3",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.9.3"
   },
   "devDependencies": {
-    "@types/node": "^20.11.17",
+    "@types/node": "^20.19.43",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"
   }
